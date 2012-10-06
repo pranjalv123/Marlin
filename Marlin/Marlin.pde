@@ -1668,9 +1668,9 @@ void prepare_move()
   if (cartesian_mm < 0.000001) { return; }
   float seconds = 6000 * cartesian_mm / feedrate / feedmultiply;
   int steps = max(1, int(DELTA_SEGMENTS_PER_SECOND * seconds));
-  SERIAL_ECHOPGM("mm="); SERIAL_ECHO(cartesian_mm);
-  SERIAL_ECHOPGM(" seconds="); SERIAL_ECHO(seconds);
-  SERIAL_ECHOPGM(" steps="); SERIAL_ECHOLN(steps);
+  // SERIAL_ECHOPGM("mm="); SERIAL_ECHO(cartesian_mm);
+  // SERIAL_ECHOPGM(" seconds="); SERIAL_ECHO(seconds);
+  // SERIAL_ECHOPGM(" steps="); SERIAL_ECHOLN(steps);
   for (int s = 1; s <= steps; s++) {
     float fraction = float(s) / float(steps);
     for(int8_t i=0; i < NUM_AXIS; i++) {
