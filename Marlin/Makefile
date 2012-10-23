@@ -39,21 +39,21 @@
 #For Arduino Mega2560
 #MCU = atmega2560
 #For Sanguinololu
-MCU = atmega644p 
+MCU = atmega1284p 
 
 # Here you select "arduino", "Sanguino", "Gen7", ...
-HARDWARE_VARIANT 		= Sanguino
+HARDWARE_VARIANT 		= sanguino
 # This defined the board you are compiling for
-HARDWARE_MOTHERBOARD	= 91
+HARDWARE_MOTHERBOARD	= 62
 
 # Arduino source install directory
-INSTALL_DIR = ../../arduino-0022
+INSTALL_DIR = /usr/share/arduino
 
 # Arduino containd the main source code for the Arduino
 # Libraries, the "hardware variant" are for boards
 # that derives from that, and their source are present in
 # the main Marlin source directory
-ARDUINO = $(INSTALL_DIR)/hardware/arduino/cores/arduino
+ARDUINO = $(INSTALL_DIR)/hardware/sanguino/cores/arduino
 
 ifeq (${HARDWARE_VARIANT}, arduino)
 HARDWARE_SRC= $(ARDUINO)
@@ -65,9 +65,9 @@ endif
 # if you are setting this to something other than 16MHz
 F_CPU = 16000000
 
-UPLOAD_RATE = 115200
+UPLOAD_RATE = 250000
 AVRDUDE_PROGRAMMER = arduino
-PORT = /dev/arduino
+PORT = /dev/ttyUSB2
 
 TARGET = $(notdir $(CURDIR))
 
@@ -85,7 +85,7 @@ VPATH += $(INSTALL_DIR)/libraries/LiquidCrystal
 # Below here nothing should be changed...
 
 AVR_TOOLS_PATH = 
-SRC =  pins_arduino.c wiring.c \
+SRC =  wiring.c \
 	wiring_analog.c wiring_digital.c \
 	wiring_pulse.c \
 	wiring_shift.c WInterrupts.c
@@ -198,7 +198,7 @@ applet/%.cpp: %.pde $(MAKEFILE)
 # It creates a .cpp file based with the same name as the .pde file.
 # On top of the new .cpp file comes the WProgram.h header.
 	$(Pecho) "  WR    $@"
-	$P echo '#include "WProgram.h"' > $@
+	$P echo '#include "Arduino.h"' > $@
 	$P echo '#include "$<"' >>$@
 	$P echo '#include "$(ARDUINO)/main.cpp"' >> $@
 

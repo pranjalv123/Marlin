@@ -25,6 +25,7 @@
 #include "Configuration.h"
 #include "pins.h"
 
+/*
 #if ARDUINO >= 100 
   #if defined(__AVR_ATmega644P__)
     #include "WProgram.h"
@@ -34,7 +35,8 @@
 #else
    #include "WProgram.h"
 #endif
-
+*/
+#include "Arduino.h"
 #include "MarlinSerial.h"
 
 #ifndef cbi

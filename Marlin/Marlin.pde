@@ -38,7 +38,7 @@
 #include "watchdog.h"
 #include "EEPROMwrite.h"
 #include "language.h"
-#include "pins_arduino.h"
+//#include "pins_arduino.h"
 
 #define VERSION_STRING  "1.0.0"
 
@@ -48,7 +48,7 @@
 #define DELTA_SEGMENTS_PER_SECOND 200
 
 // Center-to-center distance of the holes in the diagonal push rods.
-#define DELTA_DIAGONAL_ROD 250.0 // mm
+#define DELTA_DIAGONAL_ROD 222.5 // mm
 
 // Horizontal offset from middle of printer to smooth rod center.
 #define DELTA_SMOOTH_ROD_OFFSET 175.0 // mm

@@ -32,7 +32,7 @@
 // Gen3+ =9
 
 #ifndef MOTHERBOARD
-#define MOTHERBOARD 33
+#define MOTHERBOARD 62
 #endif
 
 
@@ -105,14 +105,14 @@
 
 // If you are using a preconfigured hotend then you can use one of the value sets by uncommenting it
 // Ultimaker
-    #define  DEFAULT_Kp 22.2
-    #define  DEFAULT_Ki 1.08  
-    #define  DEFAULT_Kd 114  
+//    #define  DEFAULT_Kp 22.2
+//    #define  DEFAULT_Ki 1.08  
+//    #define  DEFAULT_Kd 114  
 
 // Makergear
-//    #define  DEFAULT_Kp 7.0
-//    #define  DEFAULT_Ki 0.1  
-//    #define  DEFAULT_Kd 12  
+    #define  DEFAULT_Kp 7.0
+    #define  DEFAULT_Ki 0.1  
+    #define  DEFAULT_Kd 12  
 
 // Mendel Parts V9 on 12V    
 //    #define  DEFAULT_Kp 63.0
@@ -126,7 +126,7 @@
 //if PREVENT_DANGEROUS_EXTRUDE is on, you can still disable (uncomment) very long bits of extrusion separately.
 #define PREVENT_LENGTHY_EXTRUDE
 
-#define EXTRUDE_MINTEMP 170
+#define EXTRUDE_MINTEMP 0
 #define EXTRUDE_MAXLENGTH (X_MAX_LENGTH+Y_MAX_LENGTH) //prevent extrusion of very large distances.
 
 //===========================================================================
@@ -189,15 +189,15 @@ const bool Z_ENDSTOPS_INVERTING = false; // set to true to invert the logic of t
 #define Y_HOME_DIR 1
 #define Z_HOME_DIR 1
 
-#define min_software_endstops false //If true, axis won't move to coordinates less than HOME_POS.
-#define max_software_endstops false //If true, axis won't move to coordinates greater than the defined lengths below.
+#define min_software_endstops true //If true, axis won't move to coordinates less than HOME_POS.
+#define max_software_endstops true //If true, axis won't move to coordinates greater than the defined lengths below.
 
 // Travel limits after homing
 // For Rostock, the MAX_POS doesn't have to be exact, it will be recalculated from Z_HOME_POS below.
-#define X_MAX_POS 620
-#define X_MIN_POS 0
-#define Y_MAX_POS 620
-#define Y_MIN_POS 0
+#define X_MAX_POS 70
+#define X_MIN_POS -70
+#define Y_MAX_POS 70
+#define Y_MIN_POS -70
 #define Z_MAX_POS 620
 #define Z_MIN_POS 0
 
@@ -209,7 +209,7 @@ const bool Z_ENDSTOPS_INVERTING = false; // set to true to invert the logic of t
 // For Rostock this means top and center of the cartesian print volume.
 #define X_HOME_POS 0
 #define Y_HOME_POS 0
-#define Z_HOME_POS 402 // Distance between nozzle and print surface after homing.
+#define Z_HOME_POS 471 // Distance between nozzle and print surface after homing.
 
 //// MOVEMENT SETTINGS
 #define NUM_AXIS 4 // The axis order in all axis related arrays is X, Y, Z, E
@@ -217,17 +217,17 @@ const bool Z_ENDSTOPS_INVERTING = false; // set to true to invert the logic of t
 
 // default settings 
 
-#define DEFAULT_AXIS_STEPS_PER_UNIT   {40, 40, 40, 100}  // default steps per unit for ultimaker
-#define DEFAULT_MAX_FEEDRATE          {300, 300, 300, 300}  // (mm/sec)
-#define DEFAULT_MAX_ACCELERATION      {9000, 9000, 9000, 9000}  // X, Y, Z, E maximum start speed for accelerated moves.
+#define DEFAULT_AXIS_STEPS_PER_UNIT   {47.05, 47.05, 47.05, 100}  // default steps per unit for ultimaker
+#define DEFAULT_MAX_FEEDRATE          {3000, 3000, 3000, 3000}  // (mm/sec)
+#define DEFAULT_MAX_ACCELERATION      {90000, 90000, 90000, 90000}  // X, Y, Z, E maximum start speed for accelerated moves.
 
-#define DEFAULT_ACCELERATION          3000   // X, Y, Z and E max acceleration in mm/s^2 for printing moves
-#define DEFAULT_RETRACT_ACCELERATION  3000   // X, Y, Z and E max acceleration in mm/s^2 for r retracts
+#define DEFAULT_ACCELERATION          30000   // X, Y, Z and E max acceleration in mm/s^2 for printing moves
+#define DEFAULT_RETRACT_ACCELERATION  30000   // X, Y, Z and E max acceleration in mm/s^2 for r retracts
 
 // 
-#define DEFAULT_XYJERK                20.0   // (mm/sec)
-#define DEFAULT_ZJERK                 20.0   // (mm/sec)
-#define DEFAULT_EJERK                 20.0   // (mm/sec)
+#define DEFAULT_XYJERK                200.0   // (mm/sec)
+#define DEFAULT_ZJERK                 200.0   // (mm/sec)
+#define DEFAULT_EJERK                 200.0   // (mm/sec)
 
 //===========================================================================
 //=============================Additional Features===========================
